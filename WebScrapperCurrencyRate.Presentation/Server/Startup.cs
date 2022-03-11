@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 
 namespace WebScrapperCurrencyRate.Presentation.Server
 {
@@ -25,11 +26,14 @@ namespace WebScrapperCurrencyRate.Presentation.Server
         {
             services.AddApplication();
             services.AddInfrastructure(Configuration);
+             
+            services.AddHostedService();
 
-            services.AddControllersWithViews()
-                    .AddFluentValidation(x => x.AutomaticValidationEnabled = false);
-
-            services.AddHostedService(); 
+            services.AddControllers();
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,16 +43,18 @@ namespace WebScrapperCurrencyRate.Presentation.Server
             {
                 app.UseDeveloperExceptionPage();
                 app.UseWebAssemblyDebugging();
+                app.UseSwagger();
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1"));
             }
             else
             {
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
+              
             app.UseErrorHandling();
 
-            app.UseHttpsRedirection(); 
+            //app.UseHttpsRedirection(); 
             app.UseStaticFiles();
 
             app.UseRouting();
@@ -56,8 +62,7 @@ namespace WebScrapperCurrencyRate.Presentation.Server
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-            });
-             
+            }); 
         }
     }
 }

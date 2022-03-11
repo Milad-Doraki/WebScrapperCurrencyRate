@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Linq.Expressions;
 using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Collections.Generic;
 
 namespace WebScrapperCurrencyRate.Infrastructure.Persistence
 {
@@ -47,6 +48,11 @@ namespace WebScrapperCurrencyRate.Infrastructure.Persistence
         public async Task<TEntity> FindAsync<TEntity>(Expression<Func<TEntity, bool>> predicate) where TEntity : class
         {
             return await DbSet<TEntity>().FirstOrDefaultAsync(predicate);
+        }
+
+        public async Task<IList<TEntity>> FindListAsync<TEntity>(Expression<Func<TEntity, bool>> predicate) where TEntity : class
+        {
+            return await DbSet<TEntity>().Where(predicate).ToListAsync();
         }
     }
 }

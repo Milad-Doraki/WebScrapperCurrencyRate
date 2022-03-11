@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using System;
+using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
@@ -14,11 +15,6 @@ namespace WebScrapperCurrencyRate.Infrastructure.Persistence
         private IMongoDatabase _database { get; set; }
         private MongoClient _mongoClient { get; set; }
 
-        protected MongoDbContext()
-        {
-
-        }
-
         public MongoDbContext(IOptions<MongoDbSettings> configuration)
         {
             _mongoClient = new MongoClient(configuration.Value.ConnectionString);
@@ -30,7 +26,6 @@ namespace WebScrapperCurrencyRate.Infrastructure.Persistence
         {
             return _database.GetCollection<TEntity>(typeof(TEntity).Name);
         }
-
 
         public async Task<TEntity> AddAsync<TEntity>(TEntity entity, CancellationToken cancellationToken) where TEntity : class
         {
@@ -47,6 +42,11 @@ namespace WebScrapperCurrencyRate.Infrastructure.Persistence
         public async Task<TEntity> FindAsync<TEntity>(Expression<Func<TEntity, bool>> predicate) where TEntity : class
         {
             return await Collection<TEntity>().Find(predicate).FirstOrDefaultAsync();
+        }
+
+        public async Task<IList<TEntity>> FindListAsync<TEntity>(Expression<Func<TEntity, bool>> predicate) where TEntity : class
+        {
+            return await Collection<TEntity>().Find(predicate).ToListAsync();
         }
     }
 }

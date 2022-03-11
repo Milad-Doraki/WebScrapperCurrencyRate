@@ -12,16 +12,13 @@
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 	  </PackageReference>
 	  <PackageReference Include="ncrontab" Version="3.3.1" />
-	  <PackageReference Include="ScrapySharp" Version="3.0.0" /> 
+	  <PackageReference Include="ScrapySharp" Version="3.0.0" />
+	  <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.2" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\WebScrapperCurrencyRate.Application\WebScrapperCurrencyRate.Application.csproj" />
     <ProjectReference Include="..\..\WebScrapperCurrencyRate.Infrastructure\WebScrapperCurrencyRate.Infrastructure.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Controllers\" />
   </ItemGroup>
 
 

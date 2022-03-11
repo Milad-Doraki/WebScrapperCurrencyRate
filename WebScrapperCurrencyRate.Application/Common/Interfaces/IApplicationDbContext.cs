@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq.Expressions;
 using System.Threading;
@@ -14,5 +15,6 @@ namespace WebScrapperCurrencyRate.Application.Common.Interfaces
         bool Any<TEntity>(Expression<Func<TEntity, bool>> predicate) where TEntity : class;
 
         Task<TEntity> FindAsync<TEntity>(Expression<Func<TEntity, bool>> predicate) where TEntity : class;
+        Task<IList<TEntity>> FindListAsync<TEntity>(Expression<Func<TEntity, bool>> predicate) where TEntity : class;
     }
 }
