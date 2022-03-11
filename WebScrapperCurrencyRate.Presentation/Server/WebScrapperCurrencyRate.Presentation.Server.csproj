@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup> 
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="5.0.11" />
+	<PackageReference Include="FluentValidation.AspNetCore" Version="10.3.4" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.0">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	  </PackageReference>
+	  <PackageReference Include="ncrontab" Version="3.3.1" />
+	  <PackageReference Include="ScrapySharp" Version="3.0.0" /> 
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\WebScrapperCurrencyRate.Application\WebScrapperCurrencyRate.Application.csproj" />
+    <ProjectReference Include="..\..\WebScrapperCurrencyRate.Infrastructure\WebScrapperCurrencyRate.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+
+
+</Project>
