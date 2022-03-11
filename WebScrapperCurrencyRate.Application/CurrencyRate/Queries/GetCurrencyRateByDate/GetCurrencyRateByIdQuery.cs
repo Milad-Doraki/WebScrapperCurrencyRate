@@ -6,7 +6,31 @@ namespace WebScrapperCurrencyRate.Application.CurrencyRates.Queries.GetCurrencyR
     public class GetCurrencyAverageRateByDateQuery : IRequest<CurrencyAverageRateDto>
     {
         public string Currency { get; set; }
-        public DateTime From { get; set; } 
-        public DateTime To { get; set; } 
+
+        private DateTime _from { get; set; }
+        public DateTime From
+        {
+            get
+            {
+                return _from;
+            }
+            set
+            {
+                _from = value.Date;
+            }
+        } 
+
+        private DateTime _to { get; set; } 
+        public DateTime To
+        {
+            get
+            {
+                return _to;
+            }
+            set
+            {
+                _to = value.Date;
+            }
+        }
     }
 }

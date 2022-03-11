@@ -12,6 +12,7 @@ namespace WebScrapperCurrencyRate.Domain.Entities
          
         public string Currency { get; set; }
 
+        [BsonDateTimeOptions(DateOnly = true)]
         public DateTime Date { get; set; } = default!;
 
         public TimeSpan Time { get; set; } = default!;
