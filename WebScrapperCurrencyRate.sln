@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebScrapperCurrencyRate.App
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebScrapperCurrencyRate.Infrastructure", "WebScrapperCurrencyRate.Infrastructure\WebScrapperCurrencyRate.Infrastructure.csproj", "{B05E65C6-8391-42B4-B9A9-48D16CBA1623}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebScrapperCurrencyRate.Presentation.Worker", "WebScrapperCurrencyRate.Presentation\Worker\WebScrapperCurrencyRate.Presentation.Worker.csproj", "{422E8245-44B1-47EB-A9D0-B40E44CE1FA1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{B05E65C6-8391-42B4-B9A9-48D16CBA1623}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B05E65C6-8391-42B4-B9A9-48D16CBA1623}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B05E65C6-8391-42B4-B9A9-48D16CBA1623}.Release|Any CPU.Build.0 = Release|Any CPU
+		{422E8245-44B1-47EB-A9D0-B40E44CE1FA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{422E8245-44B1-47EB-A9D0-B40E44CE1FA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{422E8245-44B1-47EB-A9D0-B40E44CE1FA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{422E8245-44B1-47EB-A9D0-B40E44CE1FA1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

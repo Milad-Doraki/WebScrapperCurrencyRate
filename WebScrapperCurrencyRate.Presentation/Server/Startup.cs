@@ -26,9 +26,7 @@ namespace WebScrapperCurrencyRate.Presentation.Server
         {
             services.AddApplication();
             services.AddInfrastructure(Configuration);
-             
-            services.AddHostedService();
-
+              
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

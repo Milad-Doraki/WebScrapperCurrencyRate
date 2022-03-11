@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using System;
 using WebScrapperCurrencyRate.Application.CurrencyRates.Queries.GetCurrencyRateByDate;
+using Microsoft.Extensions.Logging;
 
 namespace c2.CrudTest.Presentation.Server.Controllers
 {
